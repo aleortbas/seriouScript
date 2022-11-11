@@ -1,5 +1,8 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:script_games_serious/data/data.dart';
+import 'package:flutter/services.dart';
+import 'package:script_games_serious/models/testJson.dart';
+
 
 class SideMenu extends StatelessWidget {
 
@@ -75,60 +78,52 @@ class __ListWeeklyProjects extends StatefulWidget {
 }
 
 class ___ListWeeklyProjectsState extends State<__ListWeeklyProjects> {
+
+  List<dynamic> project = [];
+
+    Future<void> readJson() async {
+      final String response = await rootBundle.loadString('assets/generated.json');
+      final data = await json.decode(response);
+
+      setState(() {
+        project = data['user']
+        .map((data) => user.fromJson(data)).toList();
+      });
+    }
+
   @override
+  void initState() {
+    super.initState();
+    readJson();
+  }
   Widget build(BuildContext context) {
     return Expanded(
-      child: ListView(
-        padding:  const EdgeInsets.symmetric(vertical: 12.0),
-        physics: const ClampingScrollPhysics(),
-        children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget> [
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Padding(padding: const EdgeInsets.symmetric(
-                vertical: 5.0,
-                horizontal: 16.0,
-              ),child: Text('Semana pasada', style: Theme.of(context).textTheme.subtitle1,
-              overflow:  TextOverflow.ellipsis, textAlign: TextAlign.right,
-                ),
-              )
-              ),
-            ],
-          ),
-          ListView(
-            scrollDirection: Axis.vertical,
-            shrinkWrap: true,
-            children: const <Widget>[
-              Card(
-                color: Color.fromRGBO(40, 30, 77, 1),
+      child: ListView.builder(
+        itemCount: project.length,
+          itemBuilder: (c,index){
+            return  projectComponent(u: project[index]);
+          }
+      )
+    );
+  }
+  projectComponent({required user u}){
+    return Container(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget> [
+          Card(
+            color: Color.fromRGBO(40, 30, 77, 1),
                 child: ListTile(
                   leading: FlutterLogo(size: 40.0),
-                  title: Text('Two-line ListTile'),
-                  subtitle: Text('Here is a second line'),
+                  title: Text(u.name),
+                  subtitle: Text(u.email),
                   trailing: Icon(Icons.more_vert),
-                ),
-              ),
-            ],
-          ),
-          SizedBox(height: 24.0),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget> [
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Padding(padding: const EdgeInsets.symmetric(
-                vertical: 5.0,
-                horizontal: 16.0,
-              ),child: Text('Antiguo', style: Theme.of(context).textTheme.subtitle1,
-              overflow:  TextOverflow.ellipsis, textAlign: TextAlign.right,
-                ),
-              )
-              ),
-            ],
+                )
           )
         ],
+        //children: [
+          //Text(u.name)
+        //],
       ),
     );
   }

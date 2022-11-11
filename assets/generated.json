@@ -1,0 +1,46 @@
+{
+"user": [
+  {
+    "name": "Vonda Diaz",
+    "email": "vondadiaz@hawkster.com",
+    "greeting": "Hello, Vonda Diaz! You have 5 unread messages.",
+    "favoriteFruit": "strawberry"
+  },
+  {
+    "name": "Charmaine Levine",
+    "email": "charmainelevine@hawkster.com",
+    "greeting": "Hello, Charmaine Levine! You have 8 unread messages.",
+    "favoriteFruit": "strawberry"
+  },
+  {
+    "name": "Ware Perkins",
+    "email": "wareperkins@hawkster.com",
+    "greeting": "Hello, Ware Perkins! You have 1 unread messages.",
+    "favoriteFruit": "strawberry"
+  },
+  {
+    "name": "Margarita Odom",
+    "email": "margaritaodom@hawkster.com",
+    "greeting": "Hello, Margarita Odom! You have 1 unread messages.",
+    "favoriteFruit": "apple"
+  },
+  {
+    "name": "Kenya Sanford",
+    "email": "kenyasanford@hawkster.com",
+    "greeting": "Hello, Kenya Sanford! You have 6 unread messages.",
+    "favoriteFruit": "apple"
+  },
+  {
+    "name": "Tammy Yang",
+    "email": "tammyyang@hawkster.com",
+    "greeting": "Hello, Tammy Yang! You have 9 unread messages.",
+    "favoriteFruit": "banana"
+  },
+  {
+    "name": "Santos Waters",
+    "email": "santoswaters@hawkster.com",
+    "greeting": "Hello, Santos Waters! You have 9 unread messages.",
+    "favoriteFruit": "apple"
+  }
+]
+}

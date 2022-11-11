@@ -75,7 +75,6 @@ class __openDocState extends State<_openDoc> {
         ElevatedButton.icon(
           onPressed: (){}, icon: Icon( // <-- Icon
           Icons.folder_open,
-          size: 35.0,
         ), 
         style: ElevatedButton.styleFrom(
           alignment: Alignment.centerLeft,
