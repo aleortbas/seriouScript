@@ -33,7 +33,12 @@ class SideMenu extends StatelessWidget {
               title: 'Recientes',
               onTap: () {},
           ),
-          const SizedBox(height: 12.0,),
+          __ListWeeklyProjects(),
+          _sideMenuIconTab(
+              iconData: Icons.replay_circle_filled,
+              title: 'Antiguios',
+              onTap: () {},
+          ),
           __ListWeeklyProjects(),
       ]
       ),
@@ -98,8 +103,9 @@ class ___ListWeeklyProjectsState extends State<__ListWeeklyProjects> {
   }
   Widget build(BuildContext context) {
     return Expanded(
-      child: ListView.builder(
-        itemCount: project.length,
+      child: ListView.builder(  
+          shrinkWrap: true,
+          itemCount: project.length,
           itemBuilder: (c,index){
             return  projectComponent(u: project[index]);
           }
@@ -112,9 +118,10 @@ class ___ListWeeklyProjectsState extends State<__ListWeeklyProjects> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget> [
           Card(
-            color: Color.fromRGBO(40, 30, 77, 1),
+            elevation: 10,
+            color: Color.fromRGBO(40, 30, 77, 90),
                 child: ListTile(
-                  leading: FlutterLogo(size: 40.0),
+                  leading: FlutterLogo(size: 20.0),
                   title: Text(u.name),
                   subtitle: Text(u.email),
                   trailing: Icon(Icons.more_vert),
