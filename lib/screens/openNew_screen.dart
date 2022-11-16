@@ -1,21 +1,35 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:file_picker/file_picker.dart';
+import 'package:open_file_plus/open_file_plus.dart';
+import 'package:script_games_serious/widgets/side_menu.dart';
+import 'package:script_games_serious/route/route.dart' as route;
 
-class openNew_screen extends StatelessWidget {
-  const openNew_screen({Key? key}) : super(key: key);
+class initial extends StatelessWidget {
+  const initial({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding:  const EdgeInsets.symmetric(vertical: 12.0, ),
-      alignment: Alignment(-0.9, 0),
-      child: Column(
+    return Scaffold(
+      body: Column(
         children: [
-          _createNewDoc(),
-          SizedBox(height: 10),
-          _openDoc()
+          Expanded(
+            child: Row(
+              children: [
+                SideMenu(),
+                Container(
+                  margin: const EdgeInsets.only(left: 20.0, right: 20.0),
+                  child: Column(
+                    children: [
+                      SizedBox(height: 10),                      
+                      _createNewDoc(),
+                      SizedBox(height: 10),
+                      _openDoc()
+                    ],
+                  ),
+                )
+              ],
+            )
+            )
         ],
       ),
     );
@@ -37,7 +51,9 @@ class __createNewDocState extends State<_createNewDoc> {
       width: 600,
       child: (
         ElevatedButton.icon(
-          onPressed: (){}, icon: Icon( // <-- Icon
+          onPressed: (){
+            Navigator.pushNamed(context, route.invScreen);
+          }, icon: Icon( // <-- Icon
           Icons.create_new_folder,
           size: 24.0,
         ), 
@@ -73,7 +89,13 @@ class __openDocState extends State<_openDoc> {
       width: 600,
       child: (
         ElevatedButton.icon(
-          onPressed: (){}, icon: Icon( // <-- Icon
+          onPressed: () async {
+            final result = await FilePicker.platform.pickFiles();
+            if (result == null) return;
+
+            final file = result.files.first;
+            openFile(file);
+          }, icon: Icon( // <-- Icon
           Icons.folder_open,
         ), 
         style: ElevatedButton.styleFrom(
@@ -90,5 +112,9 @@ class __openDocState extends State<_openDoc> {
         label: Text('Abrir proyecto'))
       ),
     );
+  }
+  
+  void openFile(PlatformFile file) {
+    OpenFile.open(file.path!);
   }
 }

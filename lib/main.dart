@@ -3,6 +3,7 @@ import 'package:desktop_window/desktop_window.dart';
 import 'package:script_games_serious/screens/openNew_screen.dart';
 import 'package:script_games_serious/widgets/side_menu.dart';
 import 'package:script_games_serious/widgets/widgets.dart';
+import 'route/route.dart' as route;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,7 +27,8 @@ class MyApp extends StatelessWidget {
         iconTheme: const IconThemeData().copyWith(color: Colors.white),
         fontFamily: 'Montserrat',
       ),
-      home: Shell(),
+      onGenerateRoute: route.controller,
+      initialRoute: route.newDoc,
     );
   }
 }
@@ -42,7 +44,7 @@ class Shell extends StatelessWidget {
             child: Row(
               children: [
                 SideMenu(),
-                Expanded(child: openNew_screen()),
+                Expanded(child: initial()),
                 //sideAccess(),
               ],
           ),
