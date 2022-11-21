@@ -128,9 +128,6 @@ class ___ListWeeklyProjectsState extends State<__ListWeeklyProjects> {
                 )
           )
         ],
-        //children: [
-          //Text(u.name)
-        //],
       ),
     );
   }
