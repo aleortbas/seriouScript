@@ -1,82 +1,78 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:script_games_serious/models/testJson.dart';
+import 'package:sidebarx/sidebarx.dart';
 
+void main() {
+  runApp(const MyApp());
+}
+const primaryColor = Color.fromRGBO(176, 78, 107, 1);
+const canvasColor = Color.fromRGBO(42, 50, 84, 1);
+const scaffoldBackgroundColor = Color.fromRGBO(248, 247, 246, 1);
 
-class tools extends StatelessWidget {
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
 
-//  final List<projects> tracks;
-
-  const tools({
-    Key? key,
-    //required this.tracks,
-  }) : super(key: key);
-
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: double.infinity,
-      width: 200.0,
-      color: Color.fromRGBO(152, 156, 148, 1),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget> [
-          Title(color: Colors.black, child:
-           Container(
-            width: double.infinity,
-            margin: const EdgeInsets.all(30.0),
-            padding: const EdgeInsets.all(10.0),
-            decoration: BoxDecoration(border: Border(
-              left: BorderSide(color: Color.fromRGBO(189, 194, 191, 1), width: 5), 
-              top: BorderSide(color: Color.fromRGBO(189, 194, 191, 1), width: 4),
+    return MaterialApp(
+      theme: ThemeData(
+        primaryColor: primaryColor,
+        canvasColor: canvasColor,
+        scaffoldBackgroundColor: scaffoldBackgroundColor,
+        textTheme: const TextTheme(
+          headlineSmall: TextStyle(
+            color: Colors.white,
+            fontSize: 46,
+            fontWeight: FontWeight.w800,
+          ),
+        ),
+      ),
+      home: SideBarXExample(),
+    );
+  }
+}
+
+
+class SideBarXExample extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Row(
+        children: [
+          SidebarX(
+            controller: SidebarXController(selectedIndex: 0),
+            theme: const SidebarXTheme(
+              decoration: BoxDecoration(
+                color: canvasColor,
+                borderRadius: BorderRadius.only(topRight: Radius.circular(20), bottomRight: Radius.circular(20))
               ),
+              iconTheme: IconThemeData(
+                color: Color.fromRGBO(255, 255, 255, 1),
               ),
-             child: Text('Menu', style: TextStyle(fontSize: 20),),
-             )
-             ),
-          _toolsIconTab(iconData: Icons.format_align_justify, title: 'Guion', onTap: (){}  ),
-          _toolsIconTab(iconData: Icons.account_tree, title: 'Investigacion', onTap: (){}  ),
-          _toolsIconTab(iconData: Icons.dashboard, title: 'Tarjetas', onTap: (){}  ),
-          _toolsIconTab(iconData: Icons.area_chart, title: 'Estadisticas', onTap: (){}  ),
-          _toolsIconTab(iconData: Icons.settings, title: 'Ajustes',   onTap: (){}  ),
-      ]
+              selectedTextStyle: const TextStyle(color: primaryColor),
+            ),
+            extendedTheme: const SidebarXTheme(
+              width: 150
+            ),
+
+            footerDivider: Divider(color:  Colors.white.withOpacity(0.8), height: 1),
+              headerBuilder: (context,extended){
+              return const  SizedBox(
+                height: 100,
+                child: Icon(Icons.menu,size: 45,color: Colors.white,),
+              );
+            },
+
+            items: const [
+              SidebarXItem(icon: Icons.home, label: 'Home',),
+              SidebarXItem(icon: Icons.search, label: 'Search'),
+              SidebarXItem(icon: Icons.settings, label: 'Setting'),
+              SidebarXItem(icon: Icons.dark_mode, label: 'Light/Dark Mode'),
+            ],
+          ),
+          // Your app screen body
+        ],
       ),
     );
   }
 }
-
-class _toolsIconTab extends StatelessWidget {
-  
-  final IconData iconData;
-  final String title;
-  final VoidCallback onTap;
-
-  const _toolsIconTab({
-    Key? key,
-    required this.iconData,
-    required this.title,
-    required this.onTap,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 120,
-      child:
-          Card(
-            elevation: 10,
-            color: Color.fromRGBO(189, 194, 191, 1),
-                child:Center(
-                  child: ListTile(
-                  leading: Icon(iconData, size: 35,),
-                  title: Text(title, style: TextStyle(fontSize: 15, /*fontWeight: FontWeight.bold*/),),
-                  
-                ),
-                )
-          )
-    );
-  }
-}
-

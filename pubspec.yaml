@@ -17,6 +17,7 @@ dependencies:
   file_picker: ^5.2.2
   open_file_plus: ^3.3.0
   syncfusion_flutter_pdfviewer: ^20.3.56
+  sidebarx: ^0.14.0
 
 dev_dependencies:
   flutter_test:
