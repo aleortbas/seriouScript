@@ -17,7 +17,7 @@ class initial extends StatelessWidget {
               children: [
                 SideMenu(),
                 Container(
-                  margin: const EdgeInsets.only(left: 20.0, right: 20.0),
+                  margin: const EdgeInsets.only(left: 10, right: 20.0),
                   child: Column(
                     children: [
                       SizedBox(height: 10),                      
@@ -29,7 +29,7 @@ class initial extends StatelessWidget {
                 )
               ],
             )
-            )
+            ),
         ],
       ),
     );

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sidebarx/sidebarx.dart';
+import 'package:script_games_serious/route/route.dart' as route;
 
 void main() {
   runApp(const MyApp());
@@ -27,50 +27,82 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: SideBarXExample(),
+      home: sideBarzExample(),
     );
   }
 }
 
 
-class SideBarXExample extends StatelessWidget {
+class sideBarzExample extends StatefulWidget {
+  const sideBarzExample({Key? key}) : super(key: key);
+
+  @override
+  State<sideBarzExample> createState() => _sideBarzExampleState();
+}
+
+class _sideBarzExampleState extends State<sideBarzExample> {
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Row(
+    return  Drawer(
+      backgroundColor: canvasColor,
+      child: ListView(
+        // Remove padding
+        padding: EdgeInsets.zero,
         children: [
-          SidebarX(
-            controller: SidebarXController(selectedIndex: 0),
-            theme: const SidebarXTheme(
-              decoration: BoxDecoration(
-                color: canvasColor,
-                borderRadius: BorderRadius.only(topRight: Radius.circular(20), bottomRight: Radius.circular(20))
-              ),
-              iconTheme: IconThemeData(
-                color: Color.fromRGBO(255, 255, 255, 1),
-              ),
-              selectedTextStyle: const TextStyle(color: primaryColor),
+          DrawerHeader(
+            child: null,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                  fit: BoxFit.fill,
+                  image: NetworkImage(
+                      'https://oflutter.com/wp-content/uploads/2021/02/profile-bg3.jpg')),
             ),
-            extendedTheme: const SidebarXTheme(
-              width: 150
-            ),
-
-            footerDivider: Divider(color:  Colors.white.withOpacity(0.8), height: 1),
-              headerBuilder: (context,extended){
-              return const  SizedBox(
-                height: 100,
-                child: Icon(Icons.menu,size: 45,color: Colors.white,),
-              );
-            },
-
-            items: const [
-              SidebarXItem(icon: Icons.home, label: 'Home',),
-              SidebarXItem(icon: Icons.search, label: 'Search'),
-              SidebarXItem(icon: Icons.settings, label: 'Setting'),
-              SidebarXItem(icon: Icons.dark_mode, label: 'Light/Dark Mode'),
-            ],
           ),
-          // Your app screen body
+          ListTile(
+            leading: Icon(Icons.home),
+            iconColor: primaryColor,
+            title: Text('Inicion'),
+            onTap: () => Navigator.pushNamed(context, route.home),
+          ),
+          ListTile(
+            leading: Icon(Icons.account_tree_outlined),
+            iconColor: primaryColor,
+            title: Text('Investigacion'),
+            onTap: () => null,
+          ),
+          ListTile(
+            leading: Icon(Icons.dashboard),
+            iconColor: primaryColor,
+            title: Text('Tarjetas'),
+            onTap: () => null,
+          ),
+          ListTile(
+            leading: Icon(Icons.area_chart_outlined),
+            iconColor: primaryColor,
+            title: Text('Estadisticas'),
+            onTap: () => null,
+          ),
+          Divider(),
+          ListTile(
+            leading: Icon(Icons.settings),
+            iconColor: primaryColor,
+            title: Text('Ajustes'),
+            onTap: () => null,
+          ),
+          ListTile(
+            leading: Icon(Icons.description),
+            iconColor: primaryColor,
+            title: Text('Politicas'),
+            onTap: () => null,
+          ),
+          Divider(),
+          ListTile(
+            title: Text('Salir'),
+            leading: Icon(Icons.exit_to_app),
+            iconColor: primaryColor,
+            onTap: () => null,
+          ),
         ],
       ),
     );
