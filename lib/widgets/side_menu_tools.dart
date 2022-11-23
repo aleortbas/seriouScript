@@ -4,8 +4,8 @@ import 'package:script_games_serious/route/route.dart' as route;
 void main() {
   runApp(const MyApp());
 }
-const primaryColor = Color.fromRGBO(176, 78, 107, 1);
-const canvasColor = Color.fromRGBO(42, 50, 84, 1);
+const primaryColor = Color.fromRGBO(0, 0, 0, 1);
+const canvasColor = Color.fromRGBO(35, 127, 121, 1);
 const scaffoldBackgroundColor = Color.fromRGBO(248, 247, 246, 1);
 
 class MyApp extends StatelessWidget {

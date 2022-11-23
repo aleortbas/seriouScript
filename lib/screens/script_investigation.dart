@@ -5,10 +5,11 @@ import 'package:flutter_quill/flutter_quill.dart';
 QuillController _controller = QuillController.basic();
 
 var size, height, width;
-const primaryColor = Color.fromRGBO(176, 78, 107, 1);
-const canvasColor = Color.fromRGBO(42, 50, 84, 1);
-const scaffoldBackgroundColor = Color.fromRGBO(248, 247, 246, 1);
-const textEditorBackground = Color.fromRGBO(220, 212, 214, 1);
+const primaryColor = Color.fromRGBO(0, 0, 0, 1);
+const secundaryColor = Color.fromRGBO(50, 178, 169, 1);
+const canvasColor = Color.fromRGBO(21, 76, 72, 1);
+const sideBarColor = Color.fromRGBO(35, 127, 121, 1);
+const textEditorBackground = Color.fromRGBO(48, 48, 48, 20);
 
 
 class SeconPAge extends StatelessWidget {
@@ -22,7 +23,6 @@ class SeconPAge extends StatelessWidget {
     width = size.width;
 
     return Scaffold(
-      backgroundColor: textEditorBackground,
       drawer: sideBarzExample(),
       body: Row(
         children: <Widget> [
@@ -31,7 +31,7 @@ class SeconPAge extends StatelessWidget {
               Container(
                 alignment: Alignment.topCenter  ,
                 height: height,
-                color: canvasColor,
+                color: sideBarColor,
                 child: Builder(
                 builder: (context) {
                   return IconButton(
@@ -39,7 +39,7 @@ class SeconPAge extends StatelessWidget {
                       Scaffold.of(context).openDrawer(); 
                     }, 
                     icon: Icon(Icons.menu), color: primaryColor, iconSize: 30,
-                    tooltip: 'Abrir Menu',
+                    tooltip: 'Abrir Menu',                    
                     );
                 }
               ),
@@ -76,7 +76,6 @@ class _textAreaState extends State<textArea> {
     return Material(
       elevation: 20,
       child: Scaffold(
-        backgroundColor: scaffoldBackgroundColor,
       body: Column(
       children: [
         QuillToolbar.basic(
@@ -85,13 +84,13 @@ class _textAreaState extends State<textArea> {
           iconTheme: QuillIconTheme(
             borderRadius: 6,
             iconUnselectedFillColor: canvasColor,
-            iconSelectedFillColor: primaryColor,
+            iconSelectedFillColor: secundaryColor,
           ),
+          
           multiRowsDisplay: false,
           ),
         Expanded(
           child: Material(
-            color: scaffoldBackgroundColor,
             elevation: 10,
             child: Container(
               padding: const EdgeInsets.all(16),
