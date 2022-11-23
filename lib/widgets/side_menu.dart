@@ -18,7 +18,7 @@ class SideMenu extends StatelessWidget {
     return Container(
       height: double.infinity,
       width: 280.0,
-      color: Color.fromRGBO(152, 156, 148, 1),
+      color: Color.fromRGBO(21, 76, 72, 1),
       child: Column(
         children: <Widget> [
           Padding(
@@ -119,7 +119,7 @@ class ___ListWeeklyProjectsState extends State<__ListWeeklyProjects> {
         children: <Widget> [
           Card(
             elevation: 10,
-            color: Color.fromRGBO(189, 194, 191, 1),
+            color: Color.fromRGBO(35, 127, 121, 1),
                 child: ListTile(
                   leading: FlutterLogo(size: 20.0),
                   title: Text(u.name),

@@ -59,8 +59,8 @@ class __createNewDocState extends State<_createNewDoc> {
         ), 
         style: ElevatedButton.styleFrom(
           alignment: Alignment.centerLeft,
-          backgroundColor: Color.fromARGB(255, 255, 255, 255),
-          onPrimary: Color.fromRGBO(37, 41, 28, 1),
+          backgroundColor: Color.fromRGBO(35, 127, 121, 1),
+          onPrimary: Color.fromARGB(255, 255, 255, 255),
           textStyle: TextStyle(
             fontSize: 21
           ),
@@ -100,8 +100,8 @@ class __openDocState extends State<_openDoc> {
         ), 
         style: ElevatedButton.styleFrom(
           alignment: Alignment.centerLeft,
-          backgroundColor: Color.fromARGB(255, 255, 255, 255),
-          onPrimary: Color.fromRGBO(37, 41, 28, 1),
+          backgroundColor: Color.fromRGBO(35, 127, 121, 1),
+          onPrimary: Color.fromARGB(255, 255, 255, 255),
           textStyle: TextStyle(
             fontSize: 21
           ),

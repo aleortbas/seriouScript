@@ -9,7 +9,7 @@ const primaryColor = Color.fromRGBO(0, 0, 0, 1);
 const secundaryColor = Color.fromRGBO(50, 178, 169, 1);
 const canvasColor = Color.fromRGBO(21, 76, 72, 1);
 const sideBarColor = Color.fromRGBO(35, 127, 121, 1);
-const textEditorBackground = Color.fromRGBO(48, 48, 48, 20);
+const textEditorBackground = Color.fromRGBO(58, 58, 58, 20);
 
 
 class SeconPAge extends StatelessWidget {
@@ -74,7 +74,7 @@ class _textAreaState extends State<textArea> {
   @override
   Widget build(BuildContext context) {
     return Material(
-      elevation: 20,
+      elevation: 30,
       child: Scaffold(
       body: Column(
       children: [
