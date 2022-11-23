@@ -66,16 +66,22 @@ class _sideBarzExampleState extends State<sideBarzExample> {
             onTap: () => Navigator.pushNamed(context, route.home),
           ),
           ListTile(
+            leading: Icon(Icons.text_fields),
+            iconColor: primaryColor,
+            title: Text('Guion'),
+            onTap: () => Navigator.pushNamed(context, route.invScreen),
+          ),
+          ListTile(
             leading: Icon(Icons.account_tree_outlined),
             iconColor: primaryColor,
             title: Text('Investigacion'),
-            onTap: () => null,
+            onTap: () => Navigator.pushNamed(context, route.boardCards),
           ),
           ListTile(
             leading: Icon(Icons.dashboard),
             iconColor: primaryColor,
             title: Text('Tarjetas'),
-            onTap: () => null,
+            onTap: () => Navigator.pushNamed(context, route.boardCards),
           ),
           ListTile(
             leading: Icon(Icons.area_chart_outlined),
