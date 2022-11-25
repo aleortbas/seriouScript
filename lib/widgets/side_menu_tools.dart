@@ -53,10 +53,11 @@ class _sideBarzExampleState extends State<sideBarzExample> {
           DrawerHeader(
             child: null,
             decoration: BoxDecoration(
+              color: primaryColor,
               image: DecorationImage(
-                  fit: BoxFit.fill,
-                  image: NetworkImage(
-                      'https://oflutter.com/wp-content/uploads/2021/02/profile-bg3.jpg')),
+                  image: AssetImage(
+                      'assets/logo.png',
+                      )),
             ),
           ),
           ListTile(

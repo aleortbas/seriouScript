@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:script_games_serious/widgets/side_menu_tools.dart';
-import 'package:flutter_quill/flutter_quill.dart';
+import 'package:script_games_serious/widgets/appbar_reuse.dart';
+import 'package:flutter_quill/flutter_quill.dart' hide Text;
 
 QuillController _controller = QuillController.basic();
 
@@ -23,31 +24,43 @@ class SeconPAge extends StatelessWidget {
     width = size.width;
 
     return Scaffold(
+      appBar: AppBar(
+        actions: [
+          Container(
+            height: 100.0,
+            width: width,
+            child: appbar_reuse(),
+          )
+        ],
+      ),
       drawer: sideBarzExample(),
       body: Row(
         children: <Widget> [
-          Column(
-            children: <Widget> [
-              Container(
-                alignment: Alignment.topCenter  ,
-                height: height,
-                color: sideBarColor,
-                child: Builder(
-                builder: (context) {
-                  return IconButton(
-                    onPressed: (){ 
-                      Scaffold.of(context).openDrawer(); 
-                    }, 
-                    icon: Icon(Icons.menu), color: primaryColor, iconSize: 30,
-                    tooltip: 'Abrir Menu',                    
-                    );
-                }
-              ),
-              ),
-            ],
+          Container(
+            color: sideBarColor,
+            child: Column(
+              children: <Widget> [
+                Container(
+                  alignment: Alignment.topCenter  ,
+                  color: sideBarColor,
+                  child: Builder(
+                  builder: (context) {
+                    return IconButton(
+                      onPressed: (){ 
+                        Scaffold.of(context).openDrawer(); 
+                      }, 
+                      icon: Icon(Icons.menu), color: primaryColor, iconSize: 30,
+                      tooltip: 'Abrir Menu',                    
+                      );
+                  }
+                ),
+                ),
+              ],
+            ),
           ),
            Container(
             width: width-46,
+            margin: EdgeInsets.only(top: 4),
             color: textEditorBackground,
             child: Center(
             child: Container(
