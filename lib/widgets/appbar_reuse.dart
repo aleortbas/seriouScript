@@ -14,7 +14,7 @@ class appbar_reuse extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("GeeksforGeeks"),
+        title: const Text("SeriousScript"),
         titleSpacing: 00.0,
         centerTitle: true,
         toolbarHeight: 60.2,

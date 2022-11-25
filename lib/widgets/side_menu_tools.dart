@@ -70,13 +70,13 @@ class _sideBarzExampleState extends State<sideBarzExample> {
             leading: Icon(Icons.text_fields),
             iconColor: primaryColor,
             title: Text('Guion'),
-            onTap: () => Navigator.pushNamed(context, route.invScreen),
+            onTap: () => Navigator.pushNamed(context, route.textScreen),
           ),
           ListTile(
             leading: Icon(Icons.account_tree_outlined),
             iconColor: primaryColor,
             title: Text('Investigacion'),
-            onTap: () => Navigator.pushNamed(context, route.boardCards),
+            onTap: () => Navigator.pushNamed(context, route.invScreen),
           ),
           ListTile(
             leading: Icon(Icons.dashboard),
